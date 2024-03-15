@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" href="bootstrap.css">
+</head>
+<body class="bg-dark">
+<div class="container">
+
+<div  class="text-info">
+<div class="login-form">
+		<form method="post" class="form-group">
+		<h2>SIGN IN</h2><br>
+		
+<?php include 'connection.php' ?>
+<?php
+
+	if(isset($_POST['submit'])){
+		$users = $_POST['user'];
+		$passs = $_POST['pass'];
+
+	if(empty($users) || empty($passs)){
+		echo '<p class="text-danger" >Please enter username and password.</p>';
+	}else{
+	$sql = "SELECT * FROM `users` WHERE `Username` = ? AND `Password` = ?";
+	$stmt = $conn->prepare($sql);
+	$stmt -> bind_param("ss",$users,$passs);
+	$stmt->execute();
+	$result = $stmt->get_result();
+	$row = $result->fetch_assoc();
+
+	if ($passs != @$row['Password'] && $users != @$row['Username']) {
+		
+	  echo '<p class="text-danger" >Incorrect Credentials, Please try again!</p>';
+	}else{
+
+	header("Location:Dashboard.php");
+	exit();
+	}
+  }
+}
+?>
+			<div class="for-group">
+				<input type="text" name="user" placeholder="Username"><br><br>
+
+				<input type="password" name="pass" placeholder="Password" id="Input"><br><br>
+				<input type="checkbox" onclick="myFunction()">Show Password<br><br>
+
+				<button type="submit" name="submit" class="btn btn-success">LOGIN</button><br><br>
+			</div>
+		</form>
+		<br><br><br><br>
+		<hr>
+		<div class="text-center"><br>
+			<span class="small"></span><p>Not have an account? <a href="register.php" class="btn btn-outline-info">REGISTER</a></p><br><br>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+function myFunction() {
+  var x = document.getElementById("Input");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+
+</body>
+</html>
+
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+		font-family: arial;
+		user-select: none;
+	}
+
+	.login-form{
+		text-align: center;
+		width: auto;
+		height: auto;
+		padding: 50px;
+		transition: 0.7s;
+		box-shadow: 5px 5px 15px 1px;
+	}
+	
+	.for-group{
+		height: 20svh;
+	}
+
+	input{
+		font-size: 18px;
+		border: none;
+		border-radius: 3px;
+		padding: 3px 5px 3px 5px;
+		transition: 1s;
+	}
+
+	input:hover{
+		box-shadow: 3px 3px 5px 3px black;
+	}
+
+	.container{
+		height: 100svh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+</style>
