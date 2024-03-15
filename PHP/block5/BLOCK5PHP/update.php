@@ -18,6 +18,9 @@
 
             $sql = "UPDATE tbl_students SET first_name ='$first_name', middle_name='$middle_name', last_name='$last_name', address='$address',
             contact_number='$contact_number', photo_path='$photo_path' WHERE student_ID='$stud_id'";
+        } else{
+            $sql = "UPDATE tbl_students SET first_name ='$first_name', middle_name='$middle_name', last_name='$last_name', address='$address',
+            contact_number='$contact_number' WHERE student_ID='$stud_id'";
         }
 
         $conn->query($sql);
@@ -41,6 +44,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap.css">
     <title>Update Student</title>
 </head>
 <body>

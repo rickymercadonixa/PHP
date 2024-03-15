@@ -3,18 +3,23 @@
 <head>
 	<title>Students Records</title>
 	<link rel="stylesheet" href="bootstrap.css">
+	<style>
+		th, td{
+			border: solid 1px;
+			text-align: center;
+		}
+	</style>
 </head>
 	<h1>Student Records</h1>
 
 	<form method="GET" style="text-align: right;">
 	<input type="text" name="search" placeholder="Search by name...">
-	<button type="submit"><i class="fas fa-search"></i></button>
+	<button type="submit">Search</button>
 </form>
 
-<a href="create.php">Add New Student</a> &nbsp;&nbsp;
-<button onclick="window.print()">Print Records</button><br><br>
+<a href="create.php">Add New Student</a><br><br><br>
 
-<table border="1">
+<table border="1" style="width: 100vw;">
 	<b>
 		<th>ID No.</th>
 		<th>First Name</th>
@@ -24,12 +29,13 @@
 		<th>Contact Number</th>
 		<th>Photo</th>
 		<th>Action</th>
-		<?php include 'connection.php';?>
+
+<?php include 'connection.php';?>
 
 <?php
 	if(isset($_GET['search'])){
 		$search_query = $_GET['search'];
-		$sql = "SELECT * FROM students WHERE first_name LIKE '%$search_query%' OR last_name LIKE '%$search_query%'";
+		$sql = "SELECT * FROM tbl_students WHERE first_name LIKE '%$search_query%' OR last_name LIKE '%$search_query%'";
 		$result = $conn->query($sql);
 	}else{
 		$sql = "SELECT * FROM tbl_students";
@@ -47,7 +53,7 @@
 			echo "<td>".$row["last_name"]."</td>";
 			echo "<td>".$row["address"]."</td>";
 			echo "<td>".$row["contact_number"]."</td>";
-			echo "<td><img src='uploads/".$row["photo_path"]."' width='100' height='100'></td>";
+			echo "<td><img src='".$row["photo_path"]."' width='100' height='100'></td>";
 			echo "<td><a href='update.php?student_ID=".$row["student_ID"]."'>Edit</a> | <a href='delete.php?student_ID=".$row["student_ID"]."'>Delete</a></td>";
 			echo "</tr>";
 		}
