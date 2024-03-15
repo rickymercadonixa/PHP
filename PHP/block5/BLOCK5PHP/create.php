@@ -31,3 +31,31 @@
         }
     }
 ?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+</head>
+<body>
+    <h1>Add Student</h1>
+    <form action="" method="POST" enctype="multipert/form-data">
+        <label for="">First Name: </label>
+        <input type="text" name="first_name" required><br><br>
+        <label for="">Middle name: </label>
+        <input type="text" name="middle_name" required><br><br>
+        <label for="">Last Name: </label>
+        <input type="text" name="last_name" required><br><br>
+        <label for="">Address: </label>
+        <input type="text" name="address" required><br><br>
+        <label for="">Contact Number: </label>
+        <input type="text" name="contact_number" required><br><br>
+        <label for="">Photo: </label>
+        <input type="file" name="photo" required><br><br>
+        <input type="submit" value="Add Student">
+    </form>
+</body>
+</html>

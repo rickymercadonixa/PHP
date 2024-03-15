@@ -34,3 +34,31 @@
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Student</title>
+</head>
+<body>
+    <h1>Update Student</h1>
+    <form action="" method="POST" enctype="multipert/form-data">
+        <input type="hidden" name="student_ID" value="<?php echo $row['student_ID'];?>">
+        <label for="">First Name:</label>
+        <input type="text" name="first_name" value="<?php echo $row['first_name'];?>" required><br><br>
+        <label for="">Middle Name:</label>
+        <input type="text" name="middle_name" value="<?php echo $row['middle_name'];?>"><br><br>
+        <label for="">Last Name:</label>
+        <input type="text" name="last_name" value="<?php echo $row['last_name'];?>"><br><br>
+        <label for="">Address:</label>
+        <input type="text" name="address" value="<?php echo $row['address'];?>"><br><br>
+        <label for="">Contact Number:</label>
+        <input type="text" name="contact_number" value="<?php echo $row['contact_number'];?>"><br><br>
+        <label for="">Photo:</label>
+        <input type="file" name="photo"><br><br>
+        <input type="submit" value="Update Student">
+    </form>
+</body>
+</html>
