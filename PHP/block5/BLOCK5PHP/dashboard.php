@@ -10,7 +10,7 @@
 ?>
 
 <?php
-	if($result -> num_rows > 0){
+	if($result->num_rows > 0){
 		while($row = $result -> fetch_assoc()){
 			echo "<tr>";
 			echo "<td?".$row["students_ID"]."</td>";
@@ -30,28 +30,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>DASHBOARD</title>
+	<title>Students Records</title>
 	<link rel="stylesheet" href="bootstrap.css">
 </head>
-<body class="bg-dark">
-<div  class="text-info">
-	<div class="container-fluid">
-	<div class="container text-center">
-  <div class="row">
-    <div class="col">
-	<div class="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
-	<h2>WELCOME TO DASHBOARD</h2>
-		<p>This is your Dashboard, I hope you enjoy this even though it's not yet completed.</p>
-	</div>
-    </div>
-    <div class="col">
-	<div class="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
-	<p>Logout if you want to end your session.</p>
-	<a href="logout.php" class="btn btn-danger">Logout</a>
-    </div>
-  </div>
-  </div>
-	</div>
-</div>
+	<h1>Student Records</h1>
+
+	<form method="GET" style="text-align: right;">
+	<input type="text" name="search" placeholder="Search by name...">
+	<button type="submit"><i class="fas fa-search"></i></button>
+</form>
+
+<a href="create.php">Add New Student</a> &nbsp;&nbsp;
+<button onclick="window.print()">Print Records</button><br><br>
+
+<table border="1">
+	<b>
+		<th>ID No.</th>
+		<th>First Name</th>
+		<th>Middle Name</th>
+		<th>Last Name</th>
+		<th>Address</th>
+		<th>Contact Number</th>
+		<th>Photo</th>
+		<th>Action</th>
+	</b>
+</table>
+
+<form action="logout.php" method="post"><br><br>
+	<button type="submit" class="logout-btn">Logout</button>
+</form>
 </body>
 </html>
