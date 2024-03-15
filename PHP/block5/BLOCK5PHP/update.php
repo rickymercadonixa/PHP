@@ -11,16 +11,17 @@
 
         if($_FILES['photo']['size'] > 0){
             $old_photo_path = $row['photo_path'];
-            unlink($solid_photo_path);
+            unlink($old_photo_path);
 
-            $photo_path = 'upload/' . $_FILES['photo']['name'];
+            $photo_path = 'uploads/' . $_FILES['photo']['name'];
             move_uploaded_file($_FILES['photo']['tmp_name'], $photo_path);
 
-            $sql = "UPDATE Students SET first_name ='$first_name', middle_name='$middle_name', last_name='$last_name', address='$address',
-            contact_number='$contact_number', photo_path='$photo_path' WHERE student-ID='$stud_id'";
+            $sql = "UPDATE tbl_students SET first_name ='$first_name', middle_name='$middle_name', last_name='$last_name', address='$address',
+            contact_number='$contact_number', photo_path='$photo_path' WHERE student_ID='$stud_id'";
         }
 
         $conn->query($sql);
+
         header("Location: dashboard.php");
         exit();
     }
@@ -30,7 +31,7 @@
         die('Invalid ID');
     }
 
-    $sql = "SELECT * FROM Students WHERE student_ID=$stud_id";
+    $sql = "SELECT * FROM tbl_students WHERE student_ID=$stud_id";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
 ?>
@@ -44,7 +45,7 @@
 </head>
 <body>
     <h1>Update Student</h1>
-    <form action="" method="POST" enctype="multipert/form-data">
+    <form action="" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="student_ID" value="<?php echo $row['student_ID'];?>">
         <label for="">First Name:</label>
         <input type="text" name="first_name" value="<?php echo $row['first_name'];?>" required><br><br>

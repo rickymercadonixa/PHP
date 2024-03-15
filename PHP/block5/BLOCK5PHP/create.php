@@ -14,7 +14,7 @@
             $photo_path = 'uploads/' . $photo_name;
 
             if(move_uploaded_file($photo_tmp, $photo_path)){
-                $sql = "INSERT INTO students (first_name, middle_name, last_name, address, contact_number, photo_path)
+                $sql = "INSERT INTO tbl_students (first_name, middle_name, last_name, address, contact_number, photo_path)
                  VALUES ('$first_name', '$middle_name', '$last_name', '$address', '$contact_number', '$photo_path')";
     
                 if($conn->query($sql)){
@@ -42,7 +42,7 @@
 </head>
 <body>
     <h1>Add Student</h1>
-    <form action="" method="POST" enctype="multipert/form-data">
+    <form action="" method="POST" enctype="multipart/form-data">
         <label for="">First Name: </label>
         <input type="text" name="first_name" required><br><br>
         <label for="">Middle name: </label>
