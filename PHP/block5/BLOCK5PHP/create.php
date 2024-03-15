@@ -11,14 +11,14 @@
         if(isset($_FILES["photo"]) && $_FILES["photo"]["error"] == 0){
             $photo_name = $_FILES['photo']['name'];
             $photo_tmp = $_FILES['photo']['tmp_name'];
-            $photo_path = 'uploads/'. $photo_name;
+            $photo_path = 'uploads/' . $photo_name;
 
             if(move_uploaded_file($photo_tmp, $photo_path)){
                 $sql = "INSERT INTO students (first_name, middle_name, last_name, address, contact_number, photo_path)
                  VALUES ('$first_name', '$middle_name', '$last_name', '$address', '$contact_number', '$photo_path')";
     
                 if($conn->query($sql)){
-                    header("Location; dashboard.php");
+                    header("Location: dashboard.php");
                     exit();
                 }else{
                     echo "Error: ". $sql. "<br>" .$conn->error;
