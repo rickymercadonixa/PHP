@@ -11,7 +11,7 @@
 	</style>
 </head>
 <body class="bg-dark">
-	<h1 style="text-align: center; color: white;">Student Records</h1>
+	<h1 style="text-align: center; color: white;">Students Records</h1>
 
 	<form method="GET" style="text-align: right;">
 	<input type="text" name="search" placeholder="Search by name..." >
@@ -55,7 +55,7 @@
 			echo "<td>".$row["address"]."</td>";
 			echo "<td>".$row["contact_number"]."</td>";
 			echo "<td><img src='".$row["photo_path"]."' width='100' height='100'></td>";
-			echo "<td><a href='update.php?student_ID=".$row["student_ID"]."'  class='btn btn-info'>Edit</a> | <a href='delete.php?student_ID=".$row["student_ID"]."'  class='btn btn-danger'>Delete</a></td>";
+			echo "<td><a href='update.php?student_ID=".$row["student_ID"]."'  class='btn btn-info'>Edit</a> || <a href='delete.php?student_ID=".$row["student_ID"]."'  class='btn btn-danger'>Delete</a></td>";
 			echo "</tr>";
 		}
 	} else{
