@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="overflow:">
 <head>
 	<title>Students Records</title>
 	<link rel="stylesheet" href="bootstrap.css">
@@ -10,16 +10,17 @@
 		}
 	</style>
 </head>
-	<h1>Student Records</h1>
+<body class="bg-dark">
+	<h1 style="text-align: center; color: white;">Student Records</h1>
 
 	<form method="GET" style="text-align: right;">
-	<input type="text" name="search" placeholder="Search by name...">
-	<button type="submit">Search</button>
+	<input type="text" name="search" placeholder="Search by name..." >
+	<button type="submit" class="btn btn-info">Search</button>
 </form>
 
-<a href="create.php">Add New Student</a><br><br><br>
+<a href="create.php" class="btn btn-outline-info">Add New Student</a><br><br>
 
-<table border="1" style="width: 100vw;">
+<table border="1" class="table table-dark">
 	<b>
 		<th>ID No.</th>
 		<th>First Name</th>
@@ -54,7 +55,7 @@
 			echo "<td>".$row["address"]."</td>";
 			echo "<td>".$row["contact_number"]."</td>";
 			echo "<td><img src='".$row["photo_path"]."' width='100' height='100'></td>";
-			echo "<td><a href='update.php?student_ID=".$row["student_ID"]."'>Edit</a> | <a href='delete.php?student_ID=".$row["student_ID"]."'>Delete</a></td>";
+			echo "<td><a href='update.php?student_ID=".$row["student_ID"]."'  class='btn btn-info'>Edit</a> | <a href='delete.php?student_ID=".$row["student_ID"]."'  class='btn btn-danger'>Delete</a></td>";
 			echo "</tr>";
 		}
 	} else{
@@ -64,8 +65,8 @@
 	</b>
 </table>
 
-<form action="logout.php" method="post"><br><br>
-	<button type="submit" class="logout-btn">Logout</button>
+<form action="logout.php" method="post"><br>
+	<button type="submit"  class="btn btn-danger">Logout</button>
 </form>
 </body>
 </html>
