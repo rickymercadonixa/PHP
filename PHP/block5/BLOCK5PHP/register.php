@@ -45,20 +45,20 @@
 }
 ?>
   <h2>SIGN UP!</h2>
-      <label for="user">Username: <span class="required-indicator">
-      <input type="text" name="user" id="user" placeholder="Username" required><br><br>
+      <label for="user">Username <span class="required-indicator">
+      <input type="text" name="user" id="user" class="form-control" placeholder="Username" required>
 
-      <label for="pass">Password: <span class="required-indicator">
-      <input type="password" name="pass" id="pass" placeholder="Password" required><br><br>
+      <label for="pass">Password <span class="required-indicator">
+      <input type="password" name="pass" id="pass" class="form-control" placeholder="Password" required>
 
-      <label for="fname">Firstname: <span class="required-indicator">
-      <input type="text" name="fname" id="fname" placeholder="Firstname" required><br><br>
+      <label for="fname">Firstname <span class="required-indicator">
+      <input type="text" name="fname" id="fname" class="form-control" placeholder="Firstname" required>
 
-      <label for="mname">Midname: <span class="required-indicator">
-      <input type="text" name="mname" id="mname" placeholder="Midname" required><br><br>
+      <label for="mname">Midname <span class="required-indicator">
+      <input type="text" name="mname" id="mname" class="form-control" placeholder="Midname" required>
 
-      <label for="lname">Lastname: <span class="required-indicator">
-      <input type="text" name="lname" id="lname" placeholder="Lastname" required><br><br>
+      <label for="lname">Lastname <span class="required-indicator">
+      <input type="text" name="lname" id="lname" class="form-control" placeholder="Lastname" required>
       <input type="checkbox" onclick="myFunction()">Show Password<br><br>
 
         <button type="submit" name="submit" class="btn btn-success">REGISTER</button><br><br>
@@ -98,7 +98,6 @@ function myFunction() {
   }
 
   form{
-    text-align: center;
     box-shadow: 5px 5px 15px 1px;
 		padding: 20px 30px 30px 30px;
   }

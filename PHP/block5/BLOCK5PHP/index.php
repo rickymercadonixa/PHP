@@ -41,18 +41,18 @@
 }
 ?>
 			<div class="for-group">
-				<input type="text" name="user" placeholder="Username"><br><br>
+				<input type="text" name="user" class="form-control" placeholder="Username"><br>
 
-				<input type="password" name="pass" placeholder="Password" id="Input"><br><br>
+				<input type="password" name="pass" class="form-control" placeholder="Password" id="Input"><br>
 				<input type="checkbox" onclick="myFunction()">Show Password<br><br>
 
 				<button type="submit" name="submit" class="btn btn-success">LOGIN</button><br><br>
 			</div>
 		</form>
-		<br><br><br><br>
+		<br><br>
 		<hr>
 		<div class="text-center"><br>
-			<span class="small"></span><p>Not have an account? <a href="register.php" class="btn btn-outline-info">REGISTER</a></p><br><br>
+			<span class="small"></span><p>Not have an account? <a href="register.php" class="btn btn-outline-info">REGISTER</a></p><br>
 		</div>
 	</div>
 </div>

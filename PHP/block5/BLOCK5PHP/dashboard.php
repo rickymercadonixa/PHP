@@ -36,7 +36,7 @@
 <?php
 	if(isset($_GET['search'])){
 		$search_query = $_GET['search'];
-		$sql = "SELECT * FROM tbl_students WHERE first_name LIKE '%$search_query%' OR last_name LIKE '%$search_query%'";
+		$sql = "SELECT * FROM tbl_students WHERE first_name LIKE '%$search_query%' OR last_name LIKE '%$search_query%' OR student_ID LIKE '%$search_query%' OR middle_name LIKE '%$search_query%'";
 		$result = $conn->query($sql);
 	}else{
 		$sql = "SELECT * FROM tbl_students";
