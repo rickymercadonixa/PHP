@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="overflow:">
+<html>
 <head>
 	<title>Students Records</title>
 	<link rel="stylesheet" href="bootstrap.css">
