@@ -14,8 +14,9 @@
 	<h1 style="text-align: center; color: white;">Students Records</h1>
 
 	<form method="GET" style="text-align: right;">
-	<input type="text" name="search" placeholder="Search by name..." >
-	<button type="submit" class="btn btn-info">Search</button>
+	<input type="text" name="search" placeholder="Search by name..." style="padding: 3px 2px 7px 3px;">
+	<button type="submit" class="btn btn-info" >Search</button>
+	<a href="dashboard.php" class="btn btn-success">RESET</a>
 </form>
 
 <a href="create.php" class="btn btn-outline-info">Add New Student</a><br><br>
