@@ -49,8 +49,7 @@
 				<button type="submit" name="submit" class="btn btn-success">LOGIN</button><br><br>
 			</div>
 		</form>
-		<br><br>
-		<hr>
+		<br><br><br><br>
 		<div class="text-center"><br>
 			<span class="small"></span><p>Not have an account? <a href="register.php" class="btn btn-outline-info">REGISTER</a></p><br>
 		</div>
