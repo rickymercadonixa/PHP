@@ -12,7 +12,7 @@
 		<form method="post" class="form-group">
 		<h2>SIGN IN</h2><br>
 		
-<?php include 'connection.php' ?>
+<?php include 'connection.php' ;?>
 <?php
 
 	if(isset($_POST['submit'])){
