@@ -1,56 +1,56 @@
 <?php
+    class employee{
+        private $name;
+        private $age;
+        private $salary;
 
-class Employee {
-    private $name;
-    private $age;
-    private $salary;
+        public function __construct($name, $age, $salary){
+            $this -> name = $name;
+            $this -> age = $age;
+            $this -> salary = $salary;
+        }
 
-    public function __construct($name, $age, $salary) {
-        $this->name = $name;
-        $this->age = $age;
-        $this->salary = $salary;
-    }
+        public function get_name(){
+            return $this -> name;
+        }
 
-    // Getter methods
-    public function getName() {
-        return $this->name;
-    }
+        public function get_age(){
+            return $this -> age;
+        }
 
-    public function getAge() {
-        return $this->age;
-    }
+        public function get_salary(){
+            return $this -> salary;
+        }
 
-    public function getSalary() {
-        return $this->salary;
-    }
+        public function setname($name){
+            $this -> name = $name;
+        }
 
-    // Setter methods with validation
-    public function setName($name) {
-        $this->name = $name;
-    }
+        public function setage($age){
+            if($age < 18){
+                echo "The minimum age is 18. <br>";
+            }
+            else{
+                $this -> age = $age;
+            }
+        }
 
-    public function setAge($age) {
-        if ($age >= 18) {  // Enforce minimum age rule
-            $this->age = $age;
-        } else {
-            echo "Minimum age for employees is 18.";
+        public function setsalary($salary){
+            $this -> salary = $salary;
         }
     }
 
-    public function setSalary($salary) {
-        $this->salary = $salary;
-    }
-}
+        $emp1 = new employee ("Ricky Mercado", 19, 25000);
 
-// Example usage:
-$emp1 = new Employee("John Doe", 25, 50000);
-echo $emp1->getName() , "<br>";  // Output: John Doe
+        echo $emp1 -> get_name();
+        echo "<br>";
 
-$emp1->setAge(17);  // Output: Minimum age for employees is 18.
-$emp1->setAge(30);
-echo $emp1->getAge() , "<br>";  // Output: 30
+        $emp1 -> setage(17);
+        $emp1 -> setage(19);
+        echo $emp1 -> get_age();
+        echo "<br>";
 
-$emp1->setSalary(60000);
-echo $emp1->getSalary();  // Output: 60000
-
+        $emp1 -> setsalary(25000);
+        echo $emp1 -> get_salary();
+        
 ?>
