@@ -32,7 +32,20 @@
 		<th>Photo</th>
 		<th>Action</th>
 
-<?php include 'connection.php';?>
+<?php include 'connection.php';
+	if(!isset($_SESSION['username'])){
+		echo '<script>alert ("Please login first") ; window.location.href = "index.php"; </script>';
+		exit;
+	}
+
+	if(isset($_POST['submit'])){
+		$rowsu = $_POST['id'];
+		$query = "UPDATE `users` SET `Status` = '0' WHERE `Username` = '$rowsu'";
+		$stmts = $conn->prepare ($query);
+		$stmts->execute();
+	}
+
+?>
 
 <?php
 	if(isset($_GET['search'])){

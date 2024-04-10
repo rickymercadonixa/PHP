@@ -12,9 +12,8 @@
 		<form method="post" class="form-group">
 		<h2>SIGN IN</h2><br>
 		
-<?php include 'connection.php' ;?>
+<?php include 'connection.php';?>
 <?php
-
 	if(isset($_POST['submit'])){
 		$users = $_POST['user'];
 		$passs = $_POST['pass'];
@@ -28,6 +27,23 @@
 	$stmt->execute();
 	$result = $stmt->get_result();
 	$row = $result->fetch_assoc();
+	
+	session_regenerate_id();
+	$_SESSION['username'] = $row['Username'];
+
+	 session_write_close();
+
+	if($row['Status'] == 0){
+		$query = "UPDATE `users` SET `Status` = '1' WHERE `Username` = ?";
+		$stmts=$conn->prepare ($query);
+		$stmts->bind_param("s", $users);
+		$stmts->execute();
+
+		header ("Location: Dashboard.php");
+	}else{
+		echo '<script>alert ("This account is already login") </script>';
+	}
+}
 
 	if ($passs != @$row['Password'] && $users != @$row['Username']) {
 		
@@ -38,7 +54,7 @@
 	exit();
 	}
   }
-}
+
 ?>
 			<div class="for-group">
 				<input type="text" name="user" class="form-control" placeholder="Username"><br>

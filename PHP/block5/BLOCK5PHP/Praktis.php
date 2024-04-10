@@ -3,11 +3,6 @@
         public $name;
         public $motive;
 
-        function __construct($name, $motive){
-            $this -> name = $name;
-            $this -> motive = $motive;
-        }
-
         function set_name($name){
             $this -> name = $name;
         }
@@ -25,9 +20,11 @@
         }
     }
 
-    $Doraemon = new Suspect("Evil Queen", "Jealousy and desire for power");
+    $Doraemon = new Suspect();
+    $Doraemon -> set_name("Evil Queen");
+    $Doraemon -> set_motive("Desire to take over the kingdom");
 
-    echo $Doraemon -> get_name();
+    echo "Name: ".$Doraemon -> get_name();
     echo "<br>";
-    echo $Doraemon -> get_motive();
+    echo "Motive: ".$Doraemon -> get_motive();
 ?>
