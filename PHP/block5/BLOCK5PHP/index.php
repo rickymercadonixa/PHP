@@ -27,29 +27,26 @@
 	$stmt->execute();
 	$result = $stmt->get_result();
 	$row = $result->fetch_assoc();
-	
-	session_regenerate_id();
-	$_SESSION['username'] = $row['Username'];
-
-	 session_write_close();
-
-	if($row['Status'] == 0){
-		$query = "UPDATE `users` SET `Status` = '1' WHERE `Username` = ?";
-		$stmts=$conn->prepare ($query);
-		$stmts->bind_param("s", $users);
-		$stmts->execute();
-
-		header ("Location: Dashboard.php");
-	}else{
-		echo '<script>alert ("This account is already login") </script>';
-	}
 }
 
 	if ($passs != @$row['Password'] && $users != @$row['Username']) {
 		
 	  echo '<p class="text-danger" >Incorrect Credentials, Please try again!</p>';
 	}else{
-
+		session_regenerate_id();
+		$_SESSION['username'] = $row['Username'];
+	
+		 session_write_close();
+	
+		if($row['Status'] == 0){
+			$query = "UPDATE `users` SET `Status` = '1' WHERE `Username` = '$users'";
+			$stmts=$conn->prepare ($query);
+			$stmts->execute();
+	
+			header ("Location: Dashboard.php");
+		}else{
+			echo '<script>alert ("This account is already login") </script>';
+		}
 	header("Location:Dashboard.php");
 	exit();
 	}

@@ -1,3 +1,21 @@
+<?php include 'connection.php';
+	if(!isset($_SESSION['username'])){
+		echo '<script>alert ("Please login first") ; window.location.href = "index.php"; </script>';
+		exit;
+	}
+
+	if(isset($_POST['submit'])){
+		$rows = $_POST['username'];
+		$query = "UPDATE `users` SET `Status` = '0' WHERE `Username` = '$rows'";
+		$stmts=$conn->prepare($query);
+		$stmts->execute();
+
+		header ("Location: logout.php");
+		exit;
+	}
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,20 +50,6 @@
 		<th>Photo</th>
 		<th>Action</th>
 
-<?php include 'connection.php';
-	if(!isset($_SESSION['username'])){
-		echo '<script>alert ("Please login first") ; window.location.href = "index.php"; </script>';
-		exit;
-	}
-
-	if(isset($_POST['submit'])){
-		$rowsu = $_POST['id'];
-		$query = "UPDATE `users` SET `Status` = '0' WHERE `Username` = '$rowsu'";
-		$stmts = $conn->prepare ($query);
-		$stmts->execute();
-	}
-
-?>
 
 <?php
 	if(isset($_GET['search'])){
@@ -80,7 +84,7 @@
 </table>
 
 <form action="logout.php" method="post"><br>
-	<button type="submit"  class="btn btn-danger">Logout</button>
+	<button type="submit" name="submit" class="btn btn-danger">Logout</button>
 </form>
 </body>
 </html>
