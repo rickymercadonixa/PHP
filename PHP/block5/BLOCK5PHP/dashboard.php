@@ -1,17 +1,21 @@
 <?php include 'connection.php';
+		 $id = session_id();
 	if(!isset($_SESSION['username'])){
 		echo '<script>alert ("Please login first") ; window.location.href = "index.php"; </script>';
 		exit;
+	}else{
+		echo "Welcome $_SESSION[username]";
+		echo "Welcome $id";
 	}
 
-	if(isset($_POST['submit'])){
-		$rows = $_POST['username'];
-		$query = "UPDATE `users` SET `Status` = '0' WHERE `Username` = '$rows'";
-		$stmts=$conn->prepare($query);
+	if(isset($_POST['logout'])){
+		$rowsu=$id;
+		$query = "UPDATE `users` SET `Status` = '0' WHERE `Username` = '$_SESSION[username]'";
+		$stmts = $conn->prepare($query);
 		$stmts->execute();
 
-		header ("Location: logout.php");
-		exit;
+		header("Location:logout.php");
+		exit();
 	}
 
 ?>
@@ -83,8 +87,8 @@
 	</b>
 </table>
 
-<form action="logout.php" method="post"><br>
-	<button type="submit" name="submit" class="btn btn-danger">Logout</button>
+<form action="logout.php" method="POST"><br>
+	<button type="logout" name="logout" value="logout" class="btn btn-danger">Logout</button>
 </form>
 </body>
 </html>

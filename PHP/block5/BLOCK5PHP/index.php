@@ -37,10 +37,12 @@
 		$_SESSION['username'] = $row['Username'];
 	
 		 session_write_close();
+
+		 $id = session_id();
 	
 		if($row['Status'] == 0){
 			$query = "UPDATE `users` SET `Status` = '1' WHERE `Username` = '$users'";
-			$stmts=$conn->prepare ($query);
+			$stmts=$conn->prepare($query);
 			$stmts->execute();
 	
 			header ("Location: Dashboard.php");
@@ -91,7 +93,6 @@ function myFunction() {
 		margin: 0;
 		padding: 0;
 		font-family: arial;
-		user-select: none;
 	}
 
 	.login-form{
