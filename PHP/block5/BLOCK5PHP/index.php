@@ -37,6 +37,10 @@
 		$_SESSION['username'] = $row['Username'];
 	
 		session_write_close();
+
+		$user_id_session = session_id();
+		$query = "UPDATE `users` SET `user_id_session` = '$user_id_session' WHERE `Username` = '$users'";
+		mysqli_query($conn, $query);
 	
 		if($row['Status'] == 0){
 			$query = "UPDATE `users` SET `Status` = '1' WHERE `Username` = '$users'";
