@@ -12,7 +12,7 @@
 		<form method="post" class="form-group">
 		<h2>SIGN IN</h2><br>
 		
-<?php include 'connection.php';?>
+<?php require 'connection.php';?>
 <?php
 	if(isset($_POST['submit'])){
 		$users = $_POST['user'];
@@ -36,9 +36,7 @@
 		session_regenerate_id();
 		$_SESSION['username'] = $row['Username'];
 	
-		 session_write_close();
-
-		 $id = session_id();
+		session_write_close();
 	
 		if($row['Status'] == 0){
 			$query = "UPDATE `users` SET `Status` = '1' WHERE `Username` = '$users'";
