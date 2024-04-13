@@ -92,6 +92,8 @@ function myFunction() {
     x.type = "password";
   }
 }
+
+window.history.forward();
 </script>
 
 </body>
