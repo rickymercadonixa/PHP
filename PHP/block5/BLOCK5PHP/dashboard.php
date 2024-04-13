@@ -1,10 +1,10 @@
 <?php require 'connection.php';
 
 	if(!isset($_SESSION['username'])){
-
 		echo '<script>alert ("Please login first") ; window.location.href = "index.php"; </script>';
 		exit();
 	}
+
 
 if(isset($_POST['logout'])){
 	if(isset($_SESSION['username'])){
@@ -86,7 +86,7 @@ if(isset($_POST['logout'])){
 </table>
 
 <form action="" method="POST"><br>
-	<button type="submit" name="logout" value="logout" class="btn btn-danger">Logout</button>
+	<button type="submit" name="logout" value="logout" class="btn btn-danger"  onclick="return confirm('Are you sure you want to logout?')">Logout</button>
 </form>
 </body>
 </html>

@@ -37,10 +37,6 @@
 		$_SESSION['username'] = $row['Username'];
 	
 		session_write_close();
-
-		$user_id_session = session_id();
-		$query = "UPDATE `users` SET `user_id_session` = '$user_id_session' WHERE `Username` = '$users'";
-		mysqli_query($conn, $query);
 	
 		if($row['Status'] == 0){
 			$query = "UPDATE `users` SET `Status` = '1' WHERE `Username` = '$users'";
@@ -49,7 +45,18 @@
 	
 			header ("Location: Dashboard.php");
 		}else{
-			echo '<script>alert ("This account is already login") </script>';
+			
+			$username = $_SESSION['username'];
+			$sql = "SELECT * FROM `users` WHERE `Username` = '$username'";
+			$result = mysqli_query($conn, $sql);
+
+		if(mysqli_num_rows($result) == 1){
+			$row = mysqli_fetch_assoc($result);
+				if($row['Status'] == 1){
+			echo '<script>alert ("This account is already logged in. Please create or log in another account.") ; window.location.href = "index.php"; </script>';
+				exit();
+	}
+}
 		}
 	header("Location:Dashboard.php");
 	exit();
