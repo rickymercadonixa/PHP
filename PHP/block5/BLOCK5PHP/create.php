@@ -1,6 +1,10 @@
-<?php include 'connection.php';?>
+<?php require 'connection.php';
 
-<?php
+	if(!isset($_SESSION['username'])){
+		echo '<script>alert ("Please login first") ; window.location.href = "index.php"; </script>';
+		exit();
+	}
+
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $first_name = $_POST['first_name'];
         $middle_name = $_POST['middle_name'];

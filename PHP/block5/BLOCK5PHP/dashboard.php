@@ -4,7 +4,7 @@
 		echo '<script>alert ("Please login first") ; window.location.href = "index.php"; </script>';
 		exit();
 	}
-
+                           
 
 if(isset($_POST['logout'])){
 	if(isset($_SESSION['username'])){
