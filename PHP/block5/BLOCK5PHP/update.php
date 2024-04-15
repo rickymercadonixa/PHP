@@ -1,6 +1,13 @@
 <?php include 'connection.php';?>
 
 <?php
+
+if(!isset($_SESSION["Status"])){
+    echo '<script>alert ("Please login first") ; window.location.href = "index.php"; </script>';
+    exit();
+}
+
+
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $stud_id = $_POST['student_ID'];
         $first_name = $_POST['first_name'];

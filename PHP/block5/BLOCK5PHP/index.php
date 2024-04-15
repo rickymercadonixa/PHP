@@ -27,7 +27,7 @@
 	$stmt->execute();
 	$result = $stmt->get_result();
 	$row = $result->fetch_assoc();
-	$_SESSION['username'] = @$row['Username'];
+
 }
 
 	if ($passs != @$row['Password'] && $users != @$row['Username']) {
@@ -40,7 +40,8 @@
 			$query = "UPDATE `users` SET `Status` = '1' WHERE `Username` = '$users'";
 			$stmts=$conn->prepare($query);
 			$stmts->execute();
-	
+			$_SESSION['username'] = @$row['Username'];
+			$_SESSION["Status"] = @$row["Status"];
 			header ("Location: Dashboard.php");
 		}else{
 			
