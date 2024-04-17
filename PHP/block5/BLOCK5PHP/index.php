@@ -14,6 +14,12 @@
 		
 <?php require 'connection.php';?>
 <?php
+
+	if(isset($_SESSION["Status"])){
+		echo '<script>alert ("You already logged in. Please proceed.") ; window.location.href = "dashboard.php"; </script>';
+		exit();
+	}
+
 	if(isset($_POST['submit'])){
 		$users = $_POST['user'];
 		$passs = $_POST['pass'];
@@ -44,7 +50,7 @@
 			$_SESSION["Status"] = @$row["Status"];
 			header ("Location: Dashboard.php");
 		}else{
-			
+
 			$username = $_SESSION['username'];
 			$sql = "SELECT * FROM `users` WHERE `Username` = '$username'";
 			$result = mysqli_query($conn, $sql);
