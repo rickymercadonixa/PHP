@@ -39,7 +39,8 @@ if(isset($_POST['logout'])){
 	<a href="dashboard.php" class="btn btn-success">RESET</a>
 </form>
 
-<a href="create.php" class="btn btn-outline-info">Add New Student</a><br><br>
+<a href="create.php" class="btn btn-outline-info">Add New Student</a>
+<a href="attendance.php" class="btn btn-outline-info">Take Attendance</a><br><br>
 
 <table border="1" class="table table-dark">
 	<b>
@@ -50,6 +51,7 @@ if(isset($_POST['logout'])){
 		<th>Address</th>
 		<th>Contact Number</th>
 		<th>Photo</th>
+		<th>Attendance</th>
 		<th>Action</th>
 
 
@@ -75,6 +77,7 @@ if(isset($_POST['logout'])){
 			echo "<td>".$row["address"]."</td>";
 			echo "<td>".$row["contact_number"]."</td>";
 			echo "<td><img src='".$row["photo_path"]."' width='100' height='100'></td>";
+			echo "<td>".$row["attendance"]."</td>";
 			echo "<td><a href='update.php?student_ID=".$row["student_ID"]."'  class='btn btn-info'>Edit</a> || <a href='delete.php?student_ID=".$row["student_ID"]."'  class='btn btn-danger'>Delete</a></td>";
 			echo "</tr>";
 		}
