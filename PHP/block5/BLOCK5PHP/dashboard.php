@@ -40,7 +40,8 @@ if(isset($_POST['logout'])){
 </form>
 
 <a href="create.php" class="btn btn-outline-info">Add New Student</a>
-<a href="attendance.php" class="btn btn-outline-info">Take Attendance</a><br><br>
+<a href="attendance.php" class="btn btn-outline-info">Take Attendance</a>
+<a href="attendance_summary.php" class="btn btn-outline-info">Attendance Summary</a><br><br>
 
 <table border="1" class="table table-dark">
 	<b>

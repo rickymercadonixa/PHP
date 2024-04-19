@@ -54,9 +54,10 @@ if(!isset($_SESSION["Status"])){
     <link rel="stylesheet" href="bootstrap.css">
     <title>Update Student</title>
 </head>
-<body>
-    <h1>Update Student</h1>
-    <form action="" method="POST" enctype="multipart/form-data">
+<body class="bg-dark">
+    <h1 style="text-align: center; color: white;">Update Student</h1><br><br>
+    <div class="for-group" style="display: flex; justify-content: center; align-items: center;">
+    <form action="" method="POST" enctype="multipart/form-data" style="color: white;">
         <input type="hidden" name="student_ID" value="<?php echo $row['student_ID'];?>">
         <label for="">First Name:</label>
         <input type="text" name="first_name" value="<?php echo $row['first_name'];?>" required><br><br>
@@ -72,5 +73,8 @@ if(!isset($_SESSION["Status"])){
         <input type="file" name="photo"><br><br>
         <input type="submit" value="Update Student">
     </form>
+    </div>
+    <br><br><br>
+    <a href="dashboard.php" class="btn btn-outline-info">Back</a>
 </body>
 </html>

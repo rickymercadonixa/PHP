@@ -11,6 +11,11 @@
 
     <?php
 
+if(!isset($_SESSION["Status"])){
+    echo '<script>alert ("Please login first") ; window.location.href = "index.php"; </script>';
+    exit();
+}
+
         if(isset($_POST['submit'])){
             echo '<script>alert ("Done updating attendance. Please proceed to dashboard to see the changes.") ; window.location.href = "dashboard.php"; </script>';
         }

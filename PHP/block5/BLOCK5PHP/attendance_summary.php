@@ -12,7 +12,12 @@
 <a href="dashboard.php" class="btn btn-outline-info">Dashboard</a>
 <a href="" onclick="window.print()" class="btn btn-outline-info">Print Summary</a><br><br>
 
-        <?php require 'connection.php'; 
+        <?php require 'connection.php';
+        if(!isset($_SESSION["Status"])){
+            echo '<script>alert ("Please login first") ; window.location.href = "index.php"; </script>';
+            exit();
+        }
+        
                     $totalAbsent = 0;
                     $totalPresent = 0;
                     ?>
@@ -29,7 +34,7 @@
        if ($result->data_seek(0)){
         while ($row = $result->fetch_assoc()){
             echo "<tr>";
-            echo "<td>".$row["first_name"]." ".$row["last_name"]."</td>";
+            echo "<td>".$row["first_name"]." ".$row["middle_name"]." ".$row["last_name"]."</td>";
             echo "<td>".$row["attendance"]."</td>";
             echo "</tr>";
 
@@ -57,4 +62,15 @@
         border: solid 1px;
         text-align: center;
     }
+
+    @media print {
+
+            table, th, td {
+                border: none !important;
+            }
+
+            .btn {
+                display: none;
+            }
+        }
 </style>
