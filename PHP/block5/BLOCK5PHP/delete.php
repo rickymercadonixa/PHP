@@ -3,7 +3,7 @@
 <?php
 
 if(!isset($_SESSION["Status"])){
-    echo '<script>alert ("Please login first") ; window.location.href = "index.php"; </script>';
+    header("Location:index.php");
     exit();
 }
 
