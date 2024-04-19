@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <title>Attendance Summary</title>
 </head>
-<body>
+<body class="bg-dark">
 <h1 style="text-align: center; color: white;">ITELEC1-OOP ATTENDANCE</h1>
 
-<a href="attendance_summary.php" class="btn btn-outline-info">Attendance Summary</a>
-<a href="dashboard.php" class="btn btn-outline-info">Dashboard</a><br><br>
+<a href="dashboard.php" class="btn btn-outline-info">Dashboard</a>
+<a href="" onclick="window.print()" class="btn btn-outline-info">Print Summary</a><br><br>
 
         <?php require 'connection.php'; 
                     $totalAbsent = 0;
@@ -19,17 +20,16 @@
           $sql = "SELECT * FROM tbl_students";
           $result = $conn->query($sql);
         ?>
-    </table>
-<table>
+<table border="1" class="table table-dark">
     <tr>
         <th>Student Name</th>
-        <th>Attendance Remarks</th>
+        <th>Attendance Status</th>
     </tr>
         <?php
        if ($result->data_seek(0)){
         while ($row = $result->fetch_assoc()){
             echo "<tr>";
-            echo "<td>".$row["first_name"]."".$row["last_name"]."</td>";
+            echo "<td>".$row["first_name"]." ".$row["last_name"]."</td>";
             echo "<td>".$row["attendance"]."</td>";
             echo "</tr>";
 
@@ -46,13 +46,15 @@
         }
         ?>
 </table>
-<p>Total Present: <?php echo $totalPresent;?></p>
-<p>Total Absent: <?php echo $totalAbsent;?></p>
-
-<div class="container">
-<a href="attendance_summary.php" class="btn btn-outline-info">Attendance Summary</a>
-<a href="dashboard.php" class="btn btn-outline-info">Dashboard</a>
-<a href="" onclick="window.print()">Print Summary</a>
-</div>
+<br><br>
+<p style="color: white;">Total Present: <?php echo $totalPresent;?></p>
+<p style="color: white;">Total Absent: <?php echo $totalAbsent;?></p>
 </body>
 </html>
+
+<style>
+    td, th{
+        border: solid 1px;
+        text-align: center;
+    }
+</style>
