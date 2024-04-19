@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="bootstrap.css">
     <title>Take Attendance</title>
 </head>
-<body>
+<body class="bg-dark">
     <?php require 'connection.php'; ?>
 
     <?php
@@ -26,13 +26,13 @@
         }
     ?>
 
-    <h1>ITELEC1-OOP ATTENDANCE</h1>
+    <h1 style="text-align: center; color: white;">ITELEC1-OOP ATTENDANCE</h1>
 
-    <a href="attendance_summary.php" class="summary-btn">Attendance Summary</a>
-    <a href="dashboard.php" class="dashboard=btn">Dashboard</a>
+    <a href="attendance_summary.php" class="btn btn-outline-info">Attendance Summary</a>
+    <a href="dashboard.php" class="btn btn-outline-info">Dashboard</a><br><br>
     
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-        <table style="border: solid 2px">
+        <table border="1" class="table table-dark">
             <tr>
                 <th>ID No.</th>
                 <th>Firstname</th>
@@ -60,9 +60,14 @@
                 }
             ?>
         </table>
-        <div class="">
-            <button type="submit" name="submit">Submit Attendance</button>
-        </div>
+            <button type="submit" name="submit" class="btn btn-success">Submit Attendance</button>
     </form>
 </body>
 </html>
+
+<style>
+    th, td{
+        border: solid 1px;
+        text-align: center;
+    }
+</style>
