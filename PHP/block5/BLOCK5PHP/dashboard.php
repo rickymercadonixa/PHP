@@ -41,7 +41,8 @@ if(isset($_POST['logout'])){
 
 <a href="create.php" class="btn btn-outline-info">Add New Student</a>
 <a href="attendance.php" class="btn btn-outline-info">Take Attendance</a>
-<a href="attendance_summary.php" class="btn btn-outline-info">Attendance Summary</a><br><br>
+<a href="attendance_summary.php" class="btn btn-outline-info">Attendance Summary</a>
+<a href="" onclick="window.print()" class="btn btn-outline-info" class="print">Print Summary</a><br><br>
 
 <table border="1" class="table table-dark">
 	<b>
@@ -94,3 +95,31 @@ if(isset($_POST['logout'])){
 </form>
 </body>
 </html>
+
+<style>
+    td, th{
+        border: solid 1px;
+        text-align: center;
+    }
+
+    @media print {
+
+            table, th, td {
+                border: none !important;
+            }
+
+			th:nth-last-child(1),
+    		td:nth-last-child(1) {
+       	 		display: none;
+    		}
+
+            .btn, input {
+                display: none;
+            }
+
+			body{
+				background-color: white !important;
+				color: black !important;
+			}
+        }
+</style>
