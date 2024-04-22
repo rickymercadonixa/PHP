@@ -52,8 +52,8 @@ if(!isset($_SESSION["Status"])){
                         echo "<td>".$row["student_ID"]."</td>";
                         echo "<td>".$row["first_name"]. "</td>";
                         echo "<td>".$row["last_name"]. "</td>";
-                        echo "<td class='attendance-column'>";
-                        echo "<select name='attendance[".$row["student_ID"]."]'>";
+                        echo "<td  class='attendance-column'>";
+                        echo "<select class='form-select w-25 mx-auto' name='attendance[".$row["student_ID"]."]'>";
                         echo "<option value = 'Present'>Present</option>";
                         echo "<option value = 'Absent'>Absent</option>";
                         echo "</select>";
