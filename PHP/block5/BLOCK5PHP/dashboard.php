@@ -116,10 +116,5 @@ if(isset($_POST['logout'])){
             .btn, input {
                 display: none;
             }
-
-			body{
-				background-color: white !important;
-				color: black !important;
-			}
         }
 </style>
